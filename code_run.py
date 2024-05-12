@@ -19,17 +19,18 @@ def run_code():
         
         # Дожидаемся завершения процесса
         process.wait()
-        os._exit(0)
+        stop_program()
     except FileNotFoundError:
         print("Файл main.py не найден.")
     except Exception as e:
         print("Произошла ошибка при выполнении кода:", e)
 
-def stop_program(icon, item):
+def stop_program():
     icon.stop()
     os._exit(0)
 
 def main():
+    global icon
     # Создаем иконку в трее
     try:
         image = Image.open("ico.ico")
