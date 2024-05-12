@@ -14,7 +14,7 @@ def download_files_from_github(app, folder_path):
     def download_file(file_url, file_name): # Функция для загрузки файла по его URL.
         with open(file_name, 'wb') as f:
             f.write(requests.get(file_url).content)
-        print(f"Downloaded: {file_name}")
+        print(f"Загрузка: {file_name}")
 
     def download_files_from_github_in_dir(dir_name, dir_path): # Функция для загрузки файлов из указанной директории на GitHub.
         api_url = f"https://api.github.com/repos/Falbue/{app}/contents/{dir_name}"
