@@ -9,9 +9,9 @@ from tkinter import ttk
 from ttkbootstrap import Style  # Библиотека для темного режима и современных стилей
 from tkinter import messagebox  # Для всплывающих окон с подтверждением
 import winreg
-import logic  # Импорт логики из отдельного файла
 
-app = 'Dynamics-Theme'  # название приложения.
+with open('confinst.flb', 'r', encoding='utf-8') as file:
+    app = file.read()
 
 # логика
 def start_download(app, folder_name, progress, progress_label, download_frame, control_frame, create_desktop_shortcut, create_start_menu_shortcut):
