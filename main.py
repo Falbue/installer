@@ -107,9 +107,9 @@ def get_windows_theme():
     except FileNotFoundError:
         return None
 
-def main():
+def main_root():
     root = tk.Tk()
-    root.title("Загрузчик")
+    root.title("Загрузчики")
     root.geometry("350x250")
     root.resizable(False, False)  # Фиксируем размер окна
     root.iconbitmap("lib/icon.ico")
@@ -164,4 +164,4 @@ def main():
 
     root.mainloop()
 
-main()
+main_root()
