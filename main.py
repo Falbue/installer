@@ -1,3 +1,5 @@
+version = "1.0"
+
 import threading
 import os
 import requests
