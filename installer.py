@@ -90,7 +90,7 @@ else:
         def download():
             webbrowser.open('https://github.com/Falbue/installer/releases')
     
-        def main():
+        def main_root():
             root = tk.Tk()
             root.title("Уведомление")
             root.geometry("300x100")
@@ -119,7 +119,7 @@ else:
             
         
             root.mainloop()
-        main()
+        main_root()
         folder_path = create_folder(repo_name)
         download_files_from_github(repo_name, folder_path)
         sys.path.append(folder_path)
@@ -138,4 +138,4 @@ else:
             file.write(file_text)
         
         sys.path.append(folder_path)
-        import main
+        import code
