@@ -11,6 +11,7 @@ from tkinter import messagebox  # Для всплывающих окон с по
 import winreg
 import webbrowser
 import os
+import sys
 
 user_folder = os.path.expanduser('~')  # Получаем путь к папке пользователя
 install_path = os.path.join(user_folder, 'Falbue')
@@ -124,5 +125,5 @@ else:
         
         folder_path = create_folder(repo_name)
         download_files_from_github(repo_name, folder_path)
-
-import main
+        sys.path.append(folder_path)
+        import main
