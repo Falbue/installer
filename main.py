@@ -112,6 +112,7 @@ def main():
     root.title("Загрузчик")
     root.geometry("350x250")
     root.resizable(False, False)  # Фиксируем размер окна
+    root.iconbitmap("lib/icon.ico")
 
     windows_theme = get_windows_theme()
     if windows_theme == 'Light':
