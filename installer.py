@@ -2,6 +2,7 @@ version = 'v1.0'
 git_nick = "Falbue"
 repo_name = 'installer'
 repository = f"{git_nick}/{repo_name}"
+app = 'Dynamics-Theme'
 
 import requests
 import tkinter as tk
@@ -16,6 +17,7 @@ import sys
 user_folder = os.path.expanduser('~')  # Получаем путь к папке пользователя
 install_path = os.path.join(user_folder, 'Falbue')
 folder_path = os.path.join(install_path, repo_name)
+app_path = os.path.join(install_path, app)
 
 
 def latest_version(repo):
