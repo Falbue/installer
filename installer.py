@@ -67,6 +67,7 @@ def download_files_from_github(app, folder_path):
     files = response.json()
     
     for file in files:
+        print(files)
         file_path = os.path.join(folder_path, file['name'])
         if file['type'] == 'file': 
             download_file(file['download_url'], file_path)
