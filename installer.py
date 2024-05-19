@@ -67,7 +67,6 @@ def download_files_from_github(app, folder_path):
     files = response.json()
     
     for file in files:
-        print(files)
         file_path = os.path.join(folder_path, file['name'])
         if file['type'] == 'file': 
             download_file(file['download_url'], file_path)
@@ -80,57 +79,12 @@ if version == str(latest_version):
     print("Последняя верия")
 
 else:
+    print(f"Последняя найденная верия: {str(latest_version)}")
     if os.path.exists(folder_path):
-        def get_windows_theme():
-            key = r'SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize'
-            try:
-                with winreg.OpenKey(winreg.HKEY_CURRENT_USER, key) as reg_key:
-                    theme = winreg.QueryValueEx(reg_key, 'AppsUseLightTheme')[0]
-                    return 'Light' if theme == 1 else 'Dark'
-            except FileNotFoundError:
-                return None
-    
-        def download():
-            webbrowser.open('https://github.com/Falbue/installer/releases')
-    
-        def main_root():
-            root = tk.Tk()
-            root.title("Уведомление")
-            root.geometry("300x100")
-            root.resizable(False, False)  # Фиксируем размер окна)
-        
-            windows_theme = get_windows_theme()
-            if windows_theme == 'Light':
-                style = Style(theme="lumen")
-            if windows_theme == 'Dark':
-                style = Style(theme="darkly")
-            style.configure('TButton', font=('Helvetica', 10))
-            style.configure('TLabel', font=('Helvetica', 16))
-            style.configure('TCheckbutton', font=('Helvetica', 10))
-    
-            label = ttk.Label(root, text="Найдена новая версия!")
-            label.pack(pady='5')
-    
-            buttons = ttk.Frame(root, width=400)
-            buttons.pack(pady=10)
-        
-            # Кнопка "Скачать"
-            download_button = ttk.Button(buttons, text="Скачать", command=download)
-            close_button = ttk.Button(buttons, text="Закрыть", command=root.destroy)
-            download_button.pack(side="left", padx=10)
-            close_button.pack(side="right", padx=10)
-            
-        
-            root.mainloop()
-        main_root()
-        folder_path = create_folder(repo_name)
-        download_files_from_github(repo_name, folder_path)
-        sys.path.append(folder_path)
-        import code
+        print("Установщик уже есть!")
 
     else:
         folder_path = create_folder(repo_name)
-        download_files_from_github(repo_name, folder_path)
 
         file_name = "confinst.flb"
         file_path = os.path.join(folder_path, file_name)
@@ -140,4 +94,5 @@ else:
             file.write(app)
         
         sys.path.append(folder_path)
-        import code
+    download_files_from_github(repo_name, folder_path)
+import code
