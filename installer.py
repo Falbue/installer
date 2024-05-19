@@ -125,7 +125,7 @@ else:
         folder_path = create_folder(repo_name)
         download_files_from_github(repo_name, folder_path)
         sys.path.append(folder_path)
-        import main
+        import code
 
     else:
         folder_path = create_folder(repo_name)
@@ -133,11 +133,10 @@ else:
 
         file_name = "confinst.flb"
         file_path = os.path.join(folder_path, file_name)
-        file_text = "Dynamics-Theme"
         
         # Создание файла и запись текста в него
         with open(file_path, "w", encoding='utf-8') as file:
-            file.write(file_text)
+            file.write(app)
         
         sys.path.append(folder_path)
         import code
